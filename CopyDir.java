@@ -12,9 +12,7 @@ public class CopyDir extends SimpleFileVisitor<Path> {
     }
 
     @Override
-    public FileVisitResult visitFile(Path file,
-                                     BasicFileAttributes attributes) {
-
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
         try {
             Path targetFile = targetDir.resolve(sourceDir.relativize(file));
             Files.copy(file, targetFile);
